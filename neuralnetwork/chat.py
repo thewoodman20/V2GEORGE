@@ -5,6 +5,7 @@ from model import NeuralNet
 from main import bag_of_words, tokenize
 import pyttsx3
 import speech_recognition as sr
+import timer
 
 def parse_request():
     r = sr.Recognizer()
@@ -57,10 +58,17 @@ model.load_state_dict(model_state)
 model.eval()
 
 bot_name = "Vgeorge"
-pas("Let's chat! Type 'quit' to exit")
+pas("Let's chat! Say 'quit' or 'leave' to exit")
+
+def applications(request):
+    if response == "timer":
+        timer.timer(request)
+
+
+
 while True:
     user_input = parse_request()
-    if user_input == "quit":
+    if "quit" in user_input or "leave" in user_input:
         break
 
     user_input = tokenize(user_input)
@@ -80,6 +88,8 @@ while True:
                 response = random.choice(intent["responses"])
                 print(f'{bot_name}: {response}')
                 speak(response)
+                applications(user_input)
     else:
         print(f'{bot_name}: I do not understand...')
-        
+
+
