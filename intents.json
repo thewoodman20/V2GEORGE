@@ -58,6 +58,17 @@
         ]
       },
       {
+        "tag": "timer",
+        "patterns": [
+          "Set a timer",
+          "I need a timer for 10 minutes",
+          "Set a timer for 10 minutes"
+        ],
+        "responses": [
+          "timer"
+        ]
+      },
+      {
         "tag": "delivery",
         "patterns": [
           "How long does delivery take?",
@@ -77,7 +88,14 @@
           "Do you know a joke?"
         ],
         "responses": [
-          "Why did the hipster burn his mouth? He drank the coffee before it was cool."
+          "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+          "Why couldn't the bicycle stand up by itself? Because it was two-tired.",
+          "What's the difference between a snowman and a snowwoman? Snowballs.",
+          "Why was the math book sad? Because it had too many problems.",
+          "Why don't dinosaurs drive cars? Because they're extinct.",
+          "Why was the computer cold? It left its Windows open.",
+          "Why was the cat sitting on the computer? It wanted to keep an eye on the mouse.",
+          "Why was the tomato blushing? Because it saw the salad dressing!"
         ]
       }
     ]
