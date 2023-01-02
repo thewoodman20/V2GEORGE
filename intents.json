@@ -65,38 +65,51 @@
           "Set a timer for 10 minutes"
         ],
         "responses": [
-          "timer"
+          "function timer"
         ]
       },
       {
-        "tag": "delivery",
+        "tag": "rng",
         "patterns": [
-          "How long does delivery take?",
-          "How long does shipping take?",
-          "When do I get my delivery?"
+          "Give me a random number from 1 to 10",
+          "Give me a random number from 20 to 30"
         ],
         "responses": [
-          "Delivery takes 2-4 days",
-          "Shipping takes 2-4 days"
+          "function rng"
         ]
       },
       {
-        "tag": "funny",
+        "tag": "coin_flip",
         "patterns": [
-          "Tell me a joke!",
-          "Tell me something funny!",
-          "Do you know a joke?"
+          "Flip a coin",
+          "Please flip a coin"
         ],
         "responses": [
-          "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-          "Why couldn't the bicycle stand up by itself? Because it was two-tired.",
-          "What's the difference between a snowman and a snowwoman? Snowballs.",
-          "Why was the math book sad? Because it had too many problems.",
-          "Why don't dinosaurs drive cars? Because they're extinct.",
-          "Why was the computer cold? It left its Windows open.",
-          "Why was the cat sitting on the computer? It wanted to keep an eye on the mouse.",
-          "Why was the tomato blushing? Because it saw the salad dressing!"
+          "function coin"
+        ]
+      },
+      {
+        "tag": "roll_dice",
+        "patterns": [
+          "Roll a dice",
+          "Please roll a dice",
+          "dice 1d6"
+        ],
+        "responses": [
+          "function dice"
+        ]
+      },
+      {
+        "tag": "classy_music",
+        "patterns": [
+          "Play some classy music",
+          "Play piano music",
+          "Play something classy"
+        ],
+        "responses": [
+          "function classy_music"
         ]
       }
+
     ]
   }

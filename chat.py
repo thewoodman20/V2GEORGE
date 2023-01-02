@@ -5,7 +5,7 @@ from model import NeuralNet
 from main import bag_of_words, tokenize
 import pyttsx3
 import speech_recognition as sr
-import timer
+from apps import timer, rng, music
 
 def parse_request():
     r = sr.Recognizer()
@@ -61,16 +61,25 @@ bot_name = "Vgeorge"
 pas("Let's chat! Say 'quit' or 'leave' to exit")
 
 def applications(request):
-    if response == "timer":
+    if "timer" in response:
         timer.timer(request)
-
+    elif "rng" in response:
+        rng.rng(request)
+    elif "coin" in response:
+        rng.coin(request)
+    elif "roll_dice" in response:
+        rng.dice(request)
+    elif "classy_music" in response:
+        music.classy_music(request)
+    else:
+        pass
 
 
 while True:
     user_input = parse_request()
     if "quit" in user_input or "leave" in user_input:
         break
-
+    
     user_input = tokenize(user_input)
     x = bag_of_words(user_input, all_words)
     x = x.reshape(1, x.shape[0])
@@ -86,9 +95,11 @@ while True:
         for intent in intents['intents']:
             if tag == intent['tag']:
                 response = random.choice(intent["responses"])
-                print(f'{bot_name}: {response}')
-                speak(response)
-                applications(user_input)
+                if "function" in response:
+                    applications(user_input)
+                else:
+                    print(f'{bot_name}: {response}')
+                    speak(response)
     else:
         print(f'{bot_name}: I do not understand...')
 

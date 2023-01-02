@@ -1,5 +1,17 @@
 import time
+import pyttsx3
 
+def speak(audio):
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    # [0] for male, [1] for female voice
+    engine.setProperty('voice', voices[1].id)
+    engine.say(audio)
+    engine.runAndWait()
+
+def pas(output):  #print and speak function
+    print(output)
+    speak(output)
 
 def timer(request):
     seconds = 0
@@ -33,6 +45,6 @@ def timer(request):
             print(f"{h:02d}:{m:02d}:{s:02d}", end='\r')
             time.sleep(1)
         print("00:00:00", end="\r")
-        print('\n' + "The timer is complete.")
+        pas('\n' + "The timer is complete.")
     else:
         print("inval2")
