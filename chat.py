@@ -70,7 +70,9 @@ def applications(request):
     elif "roll_dice" in response:
         rng.dice(request)
     elif "classy_music" in response:
-        music.classy_music(request)
+        music.classy_xmusic(request)
+    elif "music" in response:
+        music.music(request)
     else:
         pass
 

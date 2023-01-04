@@ -21,41 +21,15 @@
         "tag": "goodbye",
         "patterns": ["Bye", "See you later", "Goodbye"],
         "responses": [
-          "See you later, thanks for visiting",
+          "See you later",
           "Have a nice day",
-          "Bye! Come back again soon."
+          "Goodbye sir"
         ]
       },
       {
         "tag": "thanks",
         "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
-        "responses": ["Happy to help!", "Any time!", "My pleasure"]
-      },
-      {
-        "tag": "items",
-        "patterns": [
-          "Which items do you have?",
-          "What kinds of items are there?",
-          "What do you sell?"
-        ],
-        "responses": [
-          "We sell coffee and tea",
-          "We have coffee and tea"
-        ]
-      },
-      {
-        "tag": "payments",
-        "patterns": [
-          "Do you take credit cards?",
-          "Do you accept Mastercard?",
-          "Can I pay with Paypal?",
-          "Are you cash only?",
-          "What cards do you take?"
-        ],
-        "responses": [
-          "We accept VISA, Mastercard and Paypal",
-          "We accept most major credit cards, and Paypal"
-        ]
+        "responses": ["Happy to help!", "Always a pleasure sir"]
       },
       {
         "tag": "timer",
@@ -100,11 +74,22 @@
         ]
       },
       {
+        "tag": "music",
+        "patterns": [
+          "Play kendrick lamar mad city",
+          "Please play the song",
+          "Play drake over"
+        ],
+        "responses": [
+          "function music"
+        ]
+      },
+      {
         "tag": "classy_music",
         "patterns": [
-          "Play some classy music",
-          "Play piano music",
-          "Play something classy"
+          "Play something classy",
+          "Please play some classy music",
+          "Play some nice background music"
         ],
         "responses": [
           "function classy_music"
