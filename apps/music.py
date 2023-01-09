@@ -3,11 +3,9 @@ def classy_music(request):
 
 #need to add a pause function which activates the insert hotkey on my keyboard
 
-
 import pyautogui
 import webbrowser as wb
 import time
-
 
 def music(request):
     song_request = request

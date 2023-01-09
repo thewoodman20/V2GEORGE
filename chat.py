@@ -5,7 +5,7 @@ from model import NeuralNet
 from main import bag_of_words, tokenize
 import pyttsx3
 import speech_recognition as sr
-from apps import timer, rng, music
+from apps import timer, rng, music, search
 
 def parse_request():
     r = sr.Recognizer()
@@ -35,8 +35,6 @@ def speak(audio):
 def pas(output):  #print and speak function
     print(output)
     speak(output)
-
-    
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -70,12 +68,13 @@ def applications(request):
     elif "roll_dice" in response:
         rng.dice(request)
     elif "classy_music" in response:
-        music.classy_xmusic(request)
+        music.classy_music(request)
     elif "music" in response:
         music.music(request)
+    elif "search" in response:
+        search.search(request)
     else:
         pass
-
 
 while True:
     user_input = parse_request()
@@ -104,5 +103,3 @@ while True:
                     speak(response)
     else:
         print(f'{bot_name}: I do not understand...')
-
-

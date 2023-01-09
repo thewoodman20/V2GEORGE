@@ -78,7 +78,20 @@
         "patterns": [
           "Play kendrick lamar mad city",
           "Please play the song",
-          "Play drake over"
+          "Play drake over",
+          "Play Justin Timberlake",
+          "Play Lil Wayne",
+          "Play 50 cent",
+          "Play Juice World",
+          "Play Eminem",
+          "Play Kanye West Stronger",
+          "Play Pop Smoke Invincible",
+          "Play Jon Bellion",
+          "Play Humble",
+          "Play slow dancing in the dark",
+          "Play young blood",
+          "Play no stylist",
+          "Play arctic monkeys"
         ],
         "responses": [
           "function music"
@@ -93,6 +106,27 @@
         ],
         "responses": [
           "function classy_music"
+        ]
+      },
+      {
+        "tag": "search",
+        "patterns": [
+          "Search how far away the sun is from earth",
+          "Search best recipie for cupcakess",
+          "Search what actors have played James Bond",
+          "Search sennheiser headphones",
+          "Search Ulysses Nardin Skeleton Tourbillon",
+          "Search Enchilada",
+          "Search Madonna",
+          "Look up how many episodes are in the punisher",
+          "Look up who is Drake",
+          "Look up Pound cake Paris Lyrics",
+          "Look up Ergonomic office chairs",
+          "Look up the hitchhikers guide to the galaxy"
+          
+        ],
+        "responses": [
+          "function search"
         ]
       }
 
