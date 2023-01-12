@@ -109,6 +109,24 @@
         ]
       },
       {
+        "tag": "weather",
+        "patterns": [
+          "How is the weather like today?",
+          "Is it cold outside?",
+          "Is it hot outside?",
+          "Is it sunny outside?",
+          "Is it raining outside?",
+          "Is it cloudy outside?",
+          "Is it  outside?",
+          "What's the weather like outside?",
+          "Is it cold out?",
+          "Is it hot out?"
+        ],
+        "responses": [
+          "function weather"
+        ]
+      },
+      {
         "tag": "search",
         "patterns": [
           "Search how far away the sun is from earth",
