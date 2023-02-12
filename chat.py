@@ -56,7 +56,7 @@ model.load_state_dict(model_state)
 model.eval()
 
 bot_name = "Vgeorge"
-pas("Let's chat! Say 'quit' or 'leave' to exit")
+pas("Hello sir, how may I be of service?")
 
 def applications(request):
     if "timer" in response:
@@ -78,7 +78,7 @@ def applications(request):
 
 while True:
     user_input = parse_request()
-    if "quit" in user_input or "leave" in user_input:
+    if "quit" in user_input or "leave" in user_input or "exit" in user_input:
         break
     
     user_input = tokenize(user_input)
