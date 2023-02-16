@@ -2,6 +2,27 @@ import requests
 import datetime as dt
 import json
 import pyttsx3
+from geopy.geocoders import Nominatim
+import speech_recognition as sr
+
+def parse_request():
+    r = sr.Recognizer()
+
+    with sr.Microphone() as source:
+        print('Listening')
+        r.pause_threshold = 0.7
+        audio = r.listen(source)
+        try:
+            print("Interpreting...")
+            locator = r.recognize_google(audio, language='en-in')
+            print(f"You said: {locator}")
+        except Exception as e:
+            print(e)
+            pas("Say that again sir")
+            return "None"
+        return locator
+
+
 
 def speak(audio):
     engine = pyttsx3.init()
@@ -16,11 +37,17 @@ def pas(output):  #print and speak function
     speak(output)
 
 def weather():
+    locator = parse_request()
+    with open("email.txt", "r") as f:
+        email = f.read()
+    geolocator = Nominatim(user_agent=email)
+    location = geolocator.geocode(locator)  #initialize locator and find the location
+    
     BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
     with open("api_key.txt", "r") as f:
         API_KEY = f.read()
-    LATITUDE = "47.5556"
-    LONGITUDE = "102.7453"
+    LATITUDE = str(location.latitude)
+    LONGITUDE = str(location.longitude)
     url = BASE_URL + "lat=" + LATITUDE + "&lon=" + LONGITUDE + "&appid=" + API_KEY
     response = requests.get(url).json()
     temp = round((int(response['main']['temp']) - 273.15)* 9/5 + 32,0)
@@ -28,18 +55,18 @@ def weather():
     pas(f'it is {temp} degrees fahrenheit outside in {location}')
     weather = (response['weather'][0]['main']).lower()
     description = response['weather'][0]['description']
-    print(weather)
-    print(description)
     if weather == "clouds":
         pas(f"It's also cloudy outside, with some {description} today")
     elif weather == "clear":
-        pas(f"It's also clear outside, with {description} today")
+        if description == "clear sky":
+            pas(f"It's also clear outside, with clear skies today")
     elif weather == "rain":
         pas(f"It's also raining today, {description}")
     elif weather == "fog":
         pas(f"It's foggy today, expect {description}")
     else:
         pas(response['weather'])
+
 
 weather()
 
@@ -48,3 +75,8 @@ weather()
 # 'timezone': 21600, 'id': 8145969, 'name': 'Kara-Kulja', 'cod': 200} 
 
 # 40.7128, -74.0060
+
+#def weather():
+
+#whats the weather like in XYZ 
+#loop through each word after in and concatenate it in a new variable to be input into the geopy lib
