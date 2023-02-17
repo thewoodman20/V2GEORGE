@@ -5,7 +5,7 @@ from model import NeuralNet
 from main import bag_of_words, tokenize
 import pyttsx3
 import speech_recognition as sr
-from apps import timer, rng, music, search
+from apps import timer, rng, music, search, weather
 
 def parse_request():
     r = sr.Recognizer()
@@ -73,6 +73,8 @@ def applications(request):
         music.music(request)
     elif "search" in response:
         search.search(request)
+    elif "weather" in response:
+       weather.weather(request)
     else:
         pass
 

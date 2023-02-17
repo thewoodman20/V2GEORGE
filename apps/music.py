@@ -9,6 +9,7 @@ import time
 
 def music(request):
     song_request = request
+    print(song_request)
     if "play" in song_request:
         x = song_request.index("play")
         while int(x) != -1:
