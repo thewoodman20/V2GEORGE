@@ -3,9 +3,10 @@ import json
 import torch
 from model import NeuralNet
 from main import bag_of_words, tokenize
-import pyttsx3
 import speech_recognition as sr
-from apps import timer, rng, music, search, weather
+from apps import timer, rng, music, search, weather, openapp
+import utils
+
 
 def parse_request():
     r = sr.Recognizer()
@@ -20,21 +21,9 @@ def parse_request():
             print(f"You said: {user_input}")
         except Exception as e:
             print(e)
-            pas("Say that again sir")
+            utils.pas("Say that again sir")
             return "None"
         return user_input
-            
-def speak(audio):
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
-    # [0] for male, [1] for female voice
-    engine.setProperty('voice', voices[1].id)
-    engine.say(audio)
-    engine.runAndWait()
-    
-def pas(output):  #print and speak function
-    print(output)
-    speak(output)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -56,7 +45,7 @@ model.load_state_dict(model_state)
 model.eval()
 
 bot_name = "Vgeorge"
-pas("Hello sir, how may I be of service?")
+utils.pas("Hello sir, how may I be of service?")
 
 def applications(request):
     if "timer" in response:
@@ -75,12 +64,17 @@ def applications(request):
         search.search(request)
     elif "weather" in response:
        weather.weather(request)
+    elif "openapp" in response:
+        openapp.openapp(request)
     else:
         pass
 
 while True:
     user_input = parse_request()
-    if "quit" in user_input or "leave" in user_input or "exit" in user_input:
+    quit_commands = ["quit","leave","exit", "thank you", "thanks", "bye", "goodbye", "see you later", "thanks a lot"] 
+    #fix this so when thank you is said responds and verifies if further service is necessary before quitting
+    
+    if any(command in user_input for command in quit_commands):
         break
     
     user_input = tokenize(user_input)
@@ -102,6 +96,6 @@ while True:
                     applications(user_input)
                 else:
                     print(f'{bot_name}: {response}')
-                    speak(response)
+                    utils.speak(response)
     else:
         print(f'{bot_name}: I do not understand...')

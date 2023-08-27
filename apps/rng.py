@@ -1,13 +1,14 @@
 import random
-import pyttsx3
+
+
+from gtts import gTTS
+from playsound import playsound
 
 def speak(audio):
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
-    # [0] for male, [1] for female voice
-    engine.setProperty('voice', voices[1].id)
-    engine.say(audio)
-    engine.runAndWait()
+    speech = gTTS(audio)
+    with open('speech.mp3', 'wb') as f:
+        speech.write_to_fp(f)
+    playsound('C:/Users/georg/OneDrive/Documents/Repos/V2GEORGE/speech.mp3') #specify the file path of the mp3 file 
 
 def pas(output):  #print and speak function
     print(output)

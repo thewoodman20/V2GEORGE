@@ -9,7 +9,6 @@ import time
 
 def music(request):
     song_request = request
-    print(song_request)
     if "play" in song_request:
         x = song_request.index("play")
         while int(x) != -1:
@@ -27,4 +26,3 @@ def music(request):
     wb.open("www.google.com")
     time.sleep(1)
     pyautogui.typewrite(f'{song_request}\n', interval=.01)
-        

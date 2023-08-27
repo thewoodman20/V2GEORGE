@@ -36,7 +36,9 @@
         "patterns": [
           "Set a timer",
           "I need a timer for 10 minutes",
-          "Set a timer for 10 minutes"
+          "Start a timer for 10 seconds",
+          "Set a timer for 10 minutes",
+          "Start a 10 second timer"
         ],
         "responses": [
           "function timer"
@@ -98,6 +100,21 @@
         ]
       },
       {
+        "tag": "openapp",
+        "patterns": [
+          "open spotify",
+          "open discord",
+          "open netflix",
+          "open chrome",
+          "open inventor",
+          "open solidworks"
+
+        ],
+        "responses": [
+          "function openapp"
+        ]
+      },
+      {
         "tag": "classy_music",
         "patterns": [
           "Play something classy",
@@ -120,7 +137,11 @@
           "Is it  outside?",
           "What's the weather like outside?",
           "Is it cold out?",
-          "Is it hot out?"
+          "Is it hot out?",
+          "Whats the weather looking like today?",
+          "How is the weather?",
+          "How is it outside?",
+          "What is the forecast for today?" 
         ],
         "responses": [
           "function weather"
@@ -130,14 +151,14 @@
         "tag": "search",
         "patterns": [
           "Search how far away the sun is from earth",
-          "Search best recipie for cupcakess",
+          "Search best recipie for cupcakes",
           "Search what actors have played James Bond",
           "Search sennheiser headphones",
           "Search Ulysses Nardin Skeleton Tourbillon",
           "Search Enchilada",
           "Search Madonna",
-          "Look up how many episodes are in the punisher",
-          "Look up who is Drake",
+          "Look up how many episodes are in this show",
+          "Look up who is arctic monkeys",
           "Look up Pound cake Paris Lyrics",
           "Look up Ergonomic office chairs",
           "Look up the hitchhikers guide to the galaxy"
